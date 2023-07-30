@@ -1,0 +1,70 @@
+//--- Databases ---//
+Anna_Architecture_Inc
+
+//--- Relationships ---//
+Client HAS-MANY Meetings    // 1 to many
+
+//--- Tables ---//
+CREATE TABLE Client(
+    CID INT PRIMARY KEY AUTO_INCREMENT,
+    Name VARCHAR(256),
+    Voice VARCHAR(256),
+    SMS VARCHAR(256),
+    Email_1 VARCHAR(256),
+    AdrLine_1 VARCHAR(256),
+    City VARCHAR(256),
+    State CHAR(2),
+    Zipcode CHAR(5),
+    Country VARCHAR(256)
+);
+
+CREATE TABLE Meetings(
+    MID INT PRIMARY KEY AUTO_INCREMENT,
+    MeetingNamez VARCHAR(256),
+    MeetingType VARCHAR(256),
+    MeetingDesc VARCHAR(256),
+    MeetingTime DATETIME,
+    MeetingAdrLine_1 VARCHAR(256),
+    MeetingCity VARCHAR(256),
+    MeetingState CHAR(2),
+    MeetingZipcode CHAR(5),
+    MeetingCountry VARCHAR(256),
+    CID INT,
+    CONSTRAINT fk_client_meetings FOREIGN KEY(CID)
+    REFERENCES Client(CID)
+);
+    
+//--- Data ---//    
+INSERT INTO Client VALUES(NULL, 'Helen Tan', '+1 323 678 9033', '+1 323 678 9033', 'helentan@gmail.com', '23 Thomason Street', 'Los Angeles', 'CA', '90003', 'United States');
+INSERT INTO Client VALUES(NULL, 'Tomas Gabriel', '+1 323 384 3759', '+1 323 384 3759', 'tomasgab24@gmail.com', '23 Thomason Street', 'Los Angeles', 'CA', '90003', 'United States');
+INSERT INTO Client VALUES(NULL, 'Ashley Duncan', '+1 212 347 3957', '+1 917 465 3845', 'Ashdun@gmail.com', '1022 Greene Street', 'New York', 'NY', '10003', 'United States');
+INSERT INTO Client VALUES(NULL, 'Tom Cheng', '+1 212 734 7282', '1 917 555 3746', 'tomcheng@gmail.com', '1022 Greene Street', 'New York', 'NY', '10003', 'United States');
+INSERT INTO Client VALUES(NULL, 'John Smith', '+1 555 123 4567', '+1 555 123 4567', 'johnsmith@example.com', '123 Main St.', 'Anytown', 'CA', '12345', 'United States');
+INSERT INTO Client VALUES(NULL, 'Jane Doe', '+1 555 789 0123', '+1 555 789 0123', 'janedoe@example.com', '456 Elm St.', 'Othertown', 'CA', '67890', 'United States');
+INSERT INTO Client VALUES(NULL, 'William Johnson', '+1 555 246 8101', '+1 555 246 8101', 'williamjohnson@example.com', '789 Maple St.', 'Somewhereville', 'NY', '23456', 'United States');
+INSERT INTO Client VALUES(NULL, 'Samantha Lee', '+1 555 369 1212', '+1 555 369 1212', 'samanthalee@example.com', '111 Cherry St.', 'Nowhereville', 'IL', '34567', 'United States');
+INSERT INTO Client VALUES(NULL, 'James Jones', '+1 555 777 8888', '+1 555 777 8888', 'jamesjones@example.com', '222 Oak St.', 'Anyshire', 'TX', '45678', 'United States');
+
+
+INSERT INTO Meetings VALUES(NULL, 'Backlog Review', 'Sprint', 'To review what to add to backlog for On Track Project', '2023-05-01 09:30:00', '23 Thomason Street', 'Los Angeles', 'CA', '90003', 'United States', 1)
+INSERT INTO Meetings VALUES(NULL, 'Daily Stand-up', 'Scrum', 'To discuss progress and blockers on current sprint tasks', '2023-05-02 10:00:00', '45 Pacific Avenue', 'San Francisco', 'CA', '94112', 'United States', 2)
+INSERT INTO Meetings VALUES(NULL, 'Client Demo', 'Product Development', 'To showcase latest product features and gather feedback', '2023-05-03 14:00:00', '123 Main Street', 'Boston', 'MA', '02108', 'United States', 1)
+INSERT INTO Meetings VALUES(NULL, 'Team Building', 'Internal', 'To strengthen team bonds and promote collaboration', '2023-05-04 16:00:00', '7895 Addison Drive', 'Chicago', 'IL', '60618', 'United States', 4)
+INSERT INTO Meetings VALUES(NULL, 'Project Kickoff', 'Internal', 'To set project goals and priorities', '2023-04-11 09:00:00', '123 Main Street', 'Boston', 'MA', '02116', 'United States', 2);
+INSERT INTO Meetings VALUES(NULL, 'Client Meeting', 'External', 'To discuss project progress and next steps', '2023-04-18 14:00:00', '456 Market Street', 'San Francisco', 'CA', '94105', 'United States', 3);
+INSERT INTO Meetings VALUES(NULL, 'Weekly Check-in', 'Internal', 'To review project status and updates', '2023-04-25 10:30:00', '789 Elm Street', 'New York', 'NY', '10005', 'United States', 1);
+INSERT INTO Meetings VALUES(NULL, 'Sales Presentation', 'External', 'To pitch services to potential clients', '2023-05-02 13:00:00', '345 State Street', 'Chicago', 'IL', '60605', 'United States', 4);
+INSERT INTO Meetings VALUES(NULL, 'Board Meeting', 'Internal', 'To discuss company strategy and finances', '2023-05-09 17:00:00', '567 Avenue Road', 'Toronto', 'ON', 'M5R 1B2', 'Canada', 2);
+INSERT INTO Meetings VALUES(NULL, 'Employee Review', 'Internal', 'To provide performance feedback and set goals', '2023-05-16 11:00:00', '9876 Oak Lane', 'Los Angeles', 'CA', '90077', 'United States', 1);
+INSERT INTO Meetings VALUES(NULL, 'Product Demo', 'External', 'To showcase new features and capabilities', '2023-05-23 15:30:00', '6320 Wilshire Boulevard', 'Los Angeles', 'CA', '90048', 'United States', 8);
+INSERT INTO Meetings VALUES(NULL, 'Team Building', 'Internal', 'To strengthen team bonds and promote collaboration', '2023-05-30 14:00:00', '7895 Addison Drive', 'Chicago', 'IL', '60618', 'United States', 5);
+
+
+//--- Commands ---//
+ALTER TABLE Meetings CHANGE COLUMN MeetingNamez MeetingName VARCHAR(256);
+
+SELECT Client.Name, Client.SMS, Meetings.MeetingName, Meetings.MeetingType, Meetings.MeetingTime, Meetings.MeetingCity FROM Client INNER JOIN Meetings on Client.cid = Meetings.cid;
+
+SELECT Client.Name, Client.SMS, Meetings.MeetingName, Meetings.MeetingType, Meetings.MeetingTime, Meetings.MeetingCity FROM Client RIGHT JOIN Meetings on Client.cid = Meetings.cid; 
+
+ORDER BY Client.Name; 

@@ -1,0 +1,56 @@
+body {
+    margin: 0;
+}
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+header {
+    background-color: #0ec9c4;
+    color: #ffffff;
+    height: 100px;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+}
+.center-vertically {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+}
+.no-margin {
+    margin: 0;
+}
+.content-container {
+    padding: 10px;
+}
+.header-spacer {
+    height: 100px;
+}
+.primary-color {
+    color: #0ec9c4;
+}
+.align-left {
+    text-align: left;
+}
+.footer-container {
+    background-color: #0ec9c4;
+    color: #ffffff;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+}
+.error {
+    color: red;
+    font-size: 0.3rem;
+    text-align: left;
+}
+input, textarea, select, fieldset {
+    margin-bottom: 0;
+}
+.row.grid-container.thirds, .row.grid-container.halves {
+    align-items: flex-start;
+}

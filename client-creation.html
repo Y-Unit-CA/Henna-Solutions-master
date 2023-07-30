@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Client Creation | Anna Architecture, LLC</title>
+    <link rel="stylesheet" href="css/main-style.css">
+    <link rel="stylesheet" href="css/Barebones-3.0.1/css/barebones.css">
+    <!-- 
+    <link rel="stylesheet" href="css/Barebones-3.0.1/css/normalize.css">
+    <link rel="stylesheet" href="css/Barebones-3.0.1/css/skeleton.css">
+    -->
+    <script src="js/validation.js"></script>
+  </head>
+  <body>
+
+    <!-- Header Section-->
+    <header class="u-full-width center-vertically">
+      <div class="u-pull-left">
+        <h1 class="no-margin">
+          Anna Architecture, LLC
+        </h1>
+      </div>
+      <div class="u-pull-right">
+        <button class="darkTheme button-primary">
+          Dark Mode
+        </button>
+        <button class="lightTheme">
+          Light Mode
+        </button>
+      </div>
+    </header>
+
+    <!-- Clearfix -->
+    <div class="clearfix" ::after>
+    </div>
+
+    <!-- Content Section-->
+    <div class="content-container">
+
+      <!-- Header Spacer -->
+      <div class="header-spacer">
+      </div>
+
+      <!-- Form Name -->
+      <h4 class="primary-color">
+        Client Creation Form
+      </h4>
+
+      <!-- Client Info Form -->
+      <form name="formClientInfo" onsubmit="return validateForm()" action="#" method="post">
+
+        <!-- Row 1 -->
+        <div class="row grid-container thirds">
+          <div class="u-full-width">
+            <label for="clientFirstName" class="primary-color align-left">
+              Client First Name:
+            </label>
+            <input class="u-full-width" type="text" name="clientFirstName" placeholder="Client first name..." id="clientFirstName">
+            <div class="error" id="firstNameErr"></div>
+          </div>
+          <div class="u-full-width">
+            <label for="clientLastName" class="primary-color align-left">
+              Client Last Name:
+            </label>
+            <input class="u-full-width" type="text" name="clientLastName" placeholder="Client last name..." id="clientLastName">
+            <div class="error" id="lastNameErr"></div>
+          </div>
+          <div class="u-full-width">
+            <label for="clientGender" class="primary-color align-left">
+              Client Gender:
+            </label>
+            <select class="u-full-width" aria-label="Client Gender" name="clientGender">
+              <option>Select</option>
+              <option>Male</option>
+              <option>Female</option>
+              <option>Non-Binary</option>
+             </select>
+             <div class="error" id="genderErr"></div>
+          </div>
+          
+        </div>
+
+        <!-- Row 2 -->
+        <div class="row grid-container thirds">
+          <div class="u-full-width">
+            <label for="clientMobile" class="primary-color align-left">
+              Client Mobile:
+            </label>
+            <input class="u-full-width" type="text" name="clientMobile" placeholder="10 digit number..." maxlength="10" id="clientMobile">
+            <div class="error" id="mobileErr"></div>
+          </div>
+          <div class="u-full-width">
+            <label for="clientEmail" class="primary-color align-left">
+              Client Email:
+            </label>
+            <input class="u-full-width" type="text" name="clientEmail" placeholder="Client email..." id="clientEmail">
+            <div class="error" id="emailErr"></div>
+          </div>
+          <div class="u-full-width">
+            <label for="clientJobTitle" class="primary-color align-left">
+              Job Title:
+            </label>
+            <input class="u-full-width" type="text" name="clientJobTitle" placeholder="Job title..." id="clientJobTitle">
+            <div class="error" id="jobTitleErr"></div>
+          </div>
+        </div>
+
+        <!-- Row 3 -->
+        <div class="row grid-container halves">
+          <div class="u-full-width">
+            <label for="clientAddressLine1" class="primary-color align-left">
+              Address Line 1:
+            </label>
+            <input class="u-full-width" type="text" name="clientAddressLine1" placeholder="Street address..." id="clientAddressLine1">
+            <div class="error" id="addressLine1Err"></div>
+          </div>
+          <div class="u-full-width">
+            <label for="clientAddressLine2" class="primary-color align-left">
+              Address Line 2:
+            </label>
+            <input class="u-full-width" type="text" name="clientAddressLine2" placeholder="Apt, suite, etc..." id="clientAddressLine2">
+            <div class="error" id="addressLine2Err"></div>
+          </div>
+        </div>
+
+        <!-- Row 4 -->
+        <div class="row grid-container thirds">
+          <div class="u-full-width">
+            <label for="clientCity" class="primary-color align-left">
+              City:
+            </label>
+            <input class="u-full-width" type="text" name="clientCity" placeholder="City..." id="clientCity">
+            <div class="error" id="cityErr"></div>
+          </div>
+          <div class="u-full-width">
+            <label for="clientState" class="primary-color align-left">
+              State:
+            </label>
+            <input class="u-full-width" type="text" name="clientState" placeholder="State..." id="clientState">
+            <div class="error" id="stateErr"></div>
+          </div>
+          <div class="u-full-width">
+            <label for="clientZipCode" class="primary-color align-left">
+              Zip Code:
+            </label>
+            <input class="u-full-width" type="text" name="clientZipCode" placeholder="Zip code..." maxlength="5" id="clientZipCode">
+            <div class="error" id="zipCodeErr"></div>
+          </div>
+        </div>
+
+        <!-- Row 5 -->
+        <div class="row grid-container full">
+          <div class="u-full-width">
+            <label for="clientMeetingScheduleTime" class="primary-color align-left">Client Meeting Schedule Time</label>
+            <select class="u-full-width" name="clientMeetingScheduleTime" aria-label="Client Meeting Schedule Time" id="clientMeetingScheduleTime">
+              <option>Select</option>
+              <option>10:00 AM</option>
+              <option>12:00 PM</option>
+              <option>2:00 PM</option>
+            </select>
+            <div class="error" id="clientMeetingScheduleTimeErr"></div>
+            <label class="primary-color align-left">
+                <input type="checkbox">
+                <span class="label-body">Require Confirmation</span>
+            </label>
+            <input class="button-primary" type="submit" value="Submit">
+          </div>
+        </div>
+        
+      </form>
+    </div>
+
+    <!-- Footer Section-->
+    <footer class="footer-container u-full-width">
+        <p>
+          &copy; 2023 Anna Architecture, LLC | Built by Y-Unit
+        </p>
+    </footer>
+  </body>
+</html>
